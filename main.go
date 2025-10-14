@@ -18,7 +18,7 @@ func main() {
 		TotalDistance:   430,
 		CargoType:       r.Chemicals,
 		CargoValue:      75000.50,
-		WeatherForecast: "Estável",
+		WeatherForecast: r.Stable,
 
 		TrafficAccidentYearHistory: 2,
 		HasInsurance:               true,

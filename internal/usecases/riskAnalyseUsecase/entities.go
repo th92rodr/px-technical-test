@@ -10,6 +10,15 @@ const (
 	Auto        = "Automotiva"
 )
 
+type WeatherCondition string
+
+const (
+	Stable    = "Estável"
+	LightRain = "Chuva Moderada"
+	HeavyRain = "Chuva Forte com Ventos"
+	Snow      = "Neve/Gelo"
+)
+
 type Score string
 
 const (
@@ -28,7 +37,7 @@ type RiskInput struct {
 	TotalDistance   int
 	CargoType       CargoType
 	CargoValue      float64
-	WeatherForecast string
+	WeatherForecast WeatherCondition
 
 	// Transport Company
 	TrafficAccidentYearHistory int

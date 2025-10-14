@@ -14,7 +14,7 @@ type riskAnalyseUsecase struct {
 }
 
 func New() RiskAnalyseUsecase {
-	r := riskAnalyseUsecase{
+	r := &riskAnalyseUsecase{
 		riskScore:       0,
 		reason:          []string{},
 		recommendations: []string{},
@@ -25,12 +25,13 @@ func New() RiskAnalyseUsecase {
 		r.evaluateCargoValueAndInsurance,
 	}
 	r.cargoTypeRules = map[CargoType][]CargoTypeRuleFunc{
-		Food: []CargoTypeRuleFunc{r.foodEvaluateDistance},
+		Electronics: []CargoTypeRuleFunc{r.electronicsEvaluateDistance},
+		Food:        []CargoTypeRuleFunc{r.foodEvaluateDistance},
 	}
 	return r
 }
 
-func (u riskAnalyseUsecase) RiskAnalyse(input RiskInput) RiskOutput {
+func (u *riskAnalyseUsecase) RiskAnalyse(input RiskInput) RiskOutput {
 	for _, fn := range u.rules {
 		fn(input)
 	}
