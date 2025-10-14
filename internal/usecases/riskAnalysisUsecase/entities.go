@@ -1,4 +1,4 @@
-package riskAnalyseUsecase
+package riskAnalysisUsecase
 
 type CargoType string
 

@@ -4,11 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 
-	r "px-technical-test/internal/usecases/riskAnalyseUsecase"
+	r "px-technical-test/internal/usecases/riskAnalysisUsecase"
 )
 
 func main() {
-	riskAnalyseUsecase := r.New()
+	riskAnalysisUsecase := r.New()
 
 	input := r.RiskInput{
 		OperationId: "OP_20250910_001",
@@ -24,7 +24,7 @@ func main() {
 		HasInsurance:               true,
 	}
 
-	result := riskAnalyseUsecase.RiskAnalyse(input)
+	result := riskAnalysisUsecase.RiskAnalysis(input)
 
 	formattedResult, _ := json.MarshalIndent(result, "", "  ")
 	fmt.Println(string(formattedResult))

@@ -1,10 +1,10 @@
-package riskAnalyseUsecase
+package riskAnalysisUsecase
 
-type RiskAnalyseUsecase interface {
-	RiskAnalyse(RiskInput) RiskOutput
+type RiskAnalysisUsecase interface {
+	RiskAnalysis(RiskInput) RiskOutput
 }
 
-type riskAnalyseUsecase struct {
+type riskAnalysisUsecase struct {
 	riskScore       int
 	reason          []string
 	recommendations []string
@@ -13,8 +13,8 @@ type riskAnalyseUsecase struct {
 	cargoTypeRules map[CargoType][]CargoTypeRuleFunc
 }
 
-func New() RiskAnalyseUsecase {
-	r := &riskAnalyseUsecase{
+func New() RiskAnalysisUsecase {
+	r := &riskAnalysisUsecase{
 		riskScore:       0,
 		reason:          []string{},
 		recommendations: []string{},
@@ -31,7 +31,7 @@ func New() RiskAnalyseUsecase {
 	return r
 }
 
-func (u *riskAnalyseUsecase) RiskAnalyse(input RiskInput) RiskOutput {
+func (u *riskAnalysisUsecase) RiskAnalysis(input RiskInput) RiskOutput {
 	for _, fn := range u.rules {
 		fn(input)
 	}
